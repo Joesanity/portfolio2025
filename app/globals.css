@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes floatCircle {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(var(--dx), var(--dy)); }
+  50%  { transform: translate(calc(-1 * var(--dx)), var(--dy)); }
+  75%  { transform: translate(calc(-1 * var(--dx)), calc(-1 * var(--dy))); }
+  100% { transform: translate(var(--dx), calc(-1 * var(--dy))); }
+}

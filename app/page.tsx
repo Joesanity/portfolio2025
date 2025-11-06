@@ -1,3 +1,4 @@
+import Cloud from "@/components/sections/cloud";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -32,7 +33,9 @@ export default function Home() {
             <TbFileCv size={36} />
           </div>
         </div>
-        <div className="border-black border rounded p-6 w-1/2">Image/Illustration</div>
+        <div className="border-black border rounded p-6 w-1/2">
+          <Cloud />
+        </div>
       </section>
     </main>
   );
