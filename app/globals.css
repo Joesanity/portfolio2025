@@ -28,8 +28,14 @@ body {
 
 @keyframes floatCircle {
   0%   { transform: translate(0px, 0px); }
-  25%  { transform: translate(var(--dx), var(--dy)); }
-  50%  { transform: translate(calc(-1 * var(--dx)), var(--dy)); }
-  75%  { transform: translate(calc(-1 * var(--dx)), calc(-1 * var(--dy))); }
-  100% { transform: translate(var(--dx), calc(-1 * var(--dy))); }
+  25%  { transform: translate(20px, -20px); }
+  50%  { transform: translate(20px, 0px); }
+  100%  { transform: translate(0px, 0px); }
+  75% { transform: translate(-20px, -20px); }
+}
+
+.skill {
+  animation-name: floatCircle;
+  animation-iteration-count: infinite;
+  animation-duration: 9s;
 }

@@ -1,29 +1,82 @@
+import { useState, useEffect } from "react";
+
 export default function Skill({
   name,
   level,
   category,
   containerWidth,
   containerHeight,
+  delayCount,
 }: {
   name: string;
   level: number;
   category: string;
   containerWidth: number;
   containerHeight: number;
+  delayCount: string;
 }) {
-  let elementWidth = 180;
-  let elementHeight = 30;
+  const elementWidth = 100;
+  const elementHeight = 30;
+  const offsetChangeAmount = 1;
 
-  function generateXOffset() {
-    return Math.random() * (containerWidth - elementWidth);
+  const [xOffset, setXOffset] = useState(0);
+  const [yOffset, setYOffset] = useState(0);
+  const [currentTarget, setCurrentTarget] = useState({
+    x: Math.random() * (containerWidth - elementWidth),
+    y: Math.random() * (containerHeight - elementHeight),
+  });
+
+  useEffect(() => {
+    if (containerWidth > elementWidth && containerHeight > elementHeight) {
+      setXOffset(Math.random() * (containerWidth - elementWidth));
+      setYOffset(Math.random() * (containerHeight - elementHeight));
+      setNewTarget();
+    }
+  }, [containerWidth, containerHeight]);
+
+  function setNewTarget() {
+    setCurrentTarget({
+      x: Math.random() * (containerWidth - elementWidth),
+      y: Math.random() * (containerHeight - elementHeight),
+    });
   }
 
-  function generateYOffset() {
-    return Math.random() * (containerHeight - elementHeight);
+  function moveToTarget() {
+    setXOffset((prev) =>
+      prev < currentTarget.x
+        ? prev + offsetChangeAmount
+        : prev > currentTarget.x
+        ? prev - offsetChangeAmount
+        : prev
+    );
+    setYOffset((prev) =>
+      prev < currentTarget.y
+        ? prev + offsetChangeAmount
+        : prev > currentTarget.y
+        ? prev - offsetChangeAmount
+        : prev
+    );
+
+    if (Math.abs(xOffset - currentTarget.x) < 1) {
+        setXOffset(currentTarget.x)
+    }
+
+    if (Math.abs(yOffset - currentTarget.y) < 1) {
+        setYOffset(currentTarget.y)
+    }
+
+    if (
+      Math.abs(xOffset - currentTarget.x) < 1 &&
+      Math.abs(yOffset - currentTarget.y) < 1
+    ) {
+      setNewTarget();
+    }
   }
 
-  let yOffset = generateYOffset();
-  let xOffset = generateXOffset();
+  useEffect(() => {
+    const interval = setInterval(moveToTarget, 16);
+    return () => clearInterval(interval);
+  }, [xOffset, yOffset, currentTarget]);
 
   function CalculateFontSize(
     level: number,
@@ -34,18 +87,15 @@ export default function Skill({
   ) {
     const clampedLevel = Math.min(Math.max(level, minLevel), maxLevel);
 
-    const fontSize =
+    return (
       minSize +
-      ((clampedLevel - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize);
-
-    return fontSize;
+      ((clampedLevel - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize)
+    );
   }
-
-  
 
   return (
     <div
-      className="absolute flex gap-4 items-center justify-start bg-white"
+      className="absolute flex gap-4 items-center justify-start "
       style={{
         top: yOffset,
         left: xOffset,
@@ -55,9 +105,6 @@ export default function Skill({
       }}
     >
       <h2 style={{ fontSize: `${CalculateFontSize(level)}px` }}>{name}</h2>
-      <p style={{ fontSize: `${CalculateFontSize(level) - 1}px` }}>
-        {category}
-      </p>
     </div>
   );
 }

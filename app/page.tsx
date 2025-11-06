@@ -33,7 +33,7 @@ export default function Home() {
             <TbFileCv size={36} />
           </div>
         </div>
-        <div className="border-black border rounded p-6 w-1/2">
+        <div className="border-black border rounded w-1/2">
           <Cloud />
         </div>
       </section>
