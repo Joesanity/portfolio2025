@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
 export default function Skill({
   name,
@@ -6,14 +6,14 @@ export default function Skill({
   category,
   containerWidth,
   containerHeight,
-  delayCount,
+  icon
 }: {
   name: string;
   level: number;
   category: string;
   containerWidth: number;
   containerHeight: number;
-  delayCount: string;
+  icon: ReactNode
 }) {
   const elementWidth = 100;
   const elementHeight = 30;
@@ -104,7 +104,8 @@ export default function Skill({
         height: elementHeight,
       }}
     >
-      <h2 style={{ fontSize: `${CalculateFontSize(level)}px` }}>{name}</h2>
+      {/* <h2 style={{ fontSize: `${CalculateFontSize(level)}px` }}>{name}</h2> */}
+      {icon}
     </div>
   );
 }

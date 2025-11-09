@@ -3,6 +3,27 @@
 import { useEffect, useRef, useState } from "react";
 import Skill from "../elements/skill";
 
+// FRONTEND
+import { SiReact, SiNextdotjs, SiCss3, SiBootstrap } from "react-icons/si";
+import { FaVuejs } from "react-icons/fa";
+
+// BACKEND
+import { SiNodedotjs, SiLaravel } from "react-icons/si";
+
+// LANGUAGES
+import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
+import { PiFileCSharp } from "react-icons/pi";
+
+// DATABASES
+import { SiMysql, SiPostgresql } from "react-icons/si";
+
+// CMS
+import { SiWordpress } from "react-icons/si";
+
+// OS / OTHER
+import { SiLinux } from "react-icons/si";
+
+
 export default function Cloud() {
   type Skill = {
     name: string;
@@ -27,6 +48,26 @@ export default function Cloud() {
     { name: "C#", level: 3, category: "language" },
     { name: "Linux", level: 3, category: "os" },
   ];
+
+  const iconAttributes = {size: 50}
+
+  const skillIcons: Record<string, React.ReactNode> = {
+  React: <SiReact {...iconAttributes} />,
+  "Node.js": <SiNodedotjs {...iconAttributes} />,
+  TypeScript: <SiTypescript {...iconAttributes} />,
+  Laravel: <SiLaravel {...iconAttributes} />,
+  "Next.js": <SiNextdotjs {...iconAttributes} />,
+  CSS: <SiCss3 {...iconAttributes} />,
+  Bootstrap: <SiBootstrap {...iconAttributes} />,
+  MySQL: <SiMysql {...iconAttributes} />,
+  PostgreSQL: <SiPostgresql {...iconAttributes} />,
+  Vue: <FaVuejs {...iconAttributes} />,
+  WordPress: <SiWordpress {...iconAttributes} />,
+  PHP: <SiPhp {...iconAttributes} />,
+  JavaScript: <SiJavascript {...iconAttributes} />,
+  "C#": <PiFileCSharp {...iconAttributes} />,
+  Linux: <SiLinux {...iconAttributes} />,
+};
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -56,8 +97,6 @@ export default function Cloud() {
     checkRef();
   }, []);
 
-  let delayIncrement = 0.3;
-  let delayCount = -delayIncrement;
 
   if (mounted == false) {
     return <div>Loading...</div>;
@@ -66,8 +105,6 @@ export default function Cloud() {
   return (
     <div className="relative w-full h-full overflow-clip" ref={containerRef}>
       {skills.map((skill) => {
-        delayCount += delayIncrement;
-
         return (
           <Skill
             key={skill.name}
@@ -76,7 +113,7 @@ export default function Cloud() {
             category={skill.category}
             containerWidth={size.width}
             containerHeight={size.height}
-            delayCount={`${delayCount}s`}
+            icon={skillIcons[skill.name]}
           />
         );
       })}
