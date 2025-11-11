@@ -1,3 +1,5 @@
+import Tag from "../elements/tag";
+
 export default function WorkExperienceItems() {
   type WorkExperienceItem = {
     date: string;
@@ -42,6 +44,7 @@ export default function WorkExperienceItems() {
         "Technical Support",
         "DNS Management",
         "Email Migrations",
+        "MySQL"
       ],
     },
     {
@@ -56,8 +59,8 @@ export default function WorkExperienceItems() {
       tags: [
         "Laravel",
         "Azure Dev Ops",
-        "NextJs",
-        "VueJs",
+        "Next.js",
+        "Vue.js",
         "BitBucket",
         "C#",
         "Linux VPS Management",
@@ -65,28 +68,7 @@ export default function WorkExperienceItems() {
     },
   ];
 
-  const getTagColor = (tag: string) => {
-    const lower = tag.toLowerCase();
-    if (
-      ["php", "c#", "laravel", "nextjs", "vuejs"].some((t) => lower.includes(t))
-    )
-      return "emerald";
-    if (
-      ["wordpress", "elementor", "divi", "bitbucket", "azure"].some((t) =>
-        lower.includes(t)
-      )
-    )
-      return "sky";
-    if (["seo", "keyword", "optimisation"].some((t) => lower.includes(t)))
-      return "amber";
-    if (
-      ["dns", "linux", "management", "support", "email", "custom fields"].some((t) => lower.includes(t))
-    )
-      return "rose";
-    if (["plugin", "api", "acf"].some((t) => lower.includes(t)))
-      return "violet";
-    return "gray";
-  };
+
 
   const workExperienceItemsHTML = workExperienceItemsData.map((item) => (
     <article key={item.title} className="mb-16 relative">
@@ -101,12 +83,7 @@ export default function WorkExperienceItems() {
       <div className="flex flex-wrap gap-2 mt-6">
         {item.tags &&
           item.tags.map((tag, index) => (
-            <span
-              key={index}
-              className={`bg-${getTagColor(tag)}-100 text-${getTagColor(tag)}-700 px-2 py-1 rounded text-sm font-mono`}
-            >
-              {tag}
-            </span>
+            <Tag tag={tag} key={index} />
           ))}
       </div>
     </article>

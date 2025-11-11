@@ -1,9 +1,11 @@
-import WorkExperienceItems from "@/components/elements/workexperienceitem";
+import WorkExperienceItems from "@/components/sections/workexperienceitems";
 import Cloud from "@/components/sections/cloud";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { TbFileCv } from "react-icons/tb";
+import Tag from "@/components/elements/tag";
+import ProjectItems from "@/components/sections/projectitems";
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
       className="
     bg-gray-50"
     >
-      <section className=" bg-linear-to-br from-sky-50 via-white to-emerald-50">
+      <section className="bg-linear-to-br from-sky-50 via-white to-emerald-50">
         <div className="w-4/5 mx-auto flex gap-6 py-20 items-stretch">
           <div className="flex flex-col w-1/2 gap-3">
             <div className="border border-gray-200 shadow-lg rounded-t-xl p-6 bg-white">
@@ -73,9 +75,22 @@ export default function Home() {
       </section>
 
       <section className="w-4/5 mx-auto py-20">
-        <h2 className="text-4xl font-bold font-sans mb-12 text-center">Experience</h2>
+        <h2 className="text-4xl font-bold font-sans mb-12 text-center">
+          Experience
+        </h2>
         <div className="border-l border-gray-200 pl-8 space-y-12">
           <WorkExperienceItems />
+        </div>
+      </section>
+
+      <section className="bg-linear-to-br from-sky-50 via-white to-emerald-50 py-20">
+        <div className="w-4/5 mx-auto">
+          <h2 className="text-4xl font-bold font-sans mb-12 text-center">
+            Projects
+          </h2>
+          <div>
+            <ProjectItems />
+          </div>
         </div>
       </section>
     </main>
