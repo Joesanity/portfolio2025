@@ -13,10 +13,10 @@ export default function NavLink({ label, href, classes = "" } : {
     const isActive = pathname === href;
 
     if (isActive) {
-        classes += " underline "
+        classes += " border-b-2 border-emerald-500 "
     }
 
-    classes += " hover:text-sky-500 duration-200"
+    classes += " hover:text-emerald-500 duration-200"
 
     
     return (

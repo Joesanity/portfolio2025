@@ -17,7 +17,7 @@ export default function Skill({
 }) {
   const elementWidth = 100;
   const elementHeight = 30;
-  const offsetChangeAmount = 1;
+  const offsetChangeAmount = 0.5;
 
   const [xOffset, setXOffset] = useState(0);
   const [yOffset, setYOffset] = useState(0);

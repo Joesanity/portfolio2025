@@ -9,7 +9,7 @@ export default function Button({label, href, isInternal = true, isButton, classe
 }) {
 
     if (isButton) {
-        classes += "px-8 py-4 bg-sky-500 rounded hover:bg-white hover:text-sky-500 duration-200"
+        classes += "border border-gray-200 shadow-lg px-8 py-4 bg-emerald-500 text-white rounded hover:bg-emerald-600 duration-200 hover:scale-105"
     }
 
     if (isInternal) {
