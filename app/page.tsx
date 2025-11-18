@@ -6,6 +6,11 @@ import { FaLinkedin } from "react-icons/fa";
 import { TbFileCv } from "react-icons/tb";
 import Tag from "@/components/elements/tag";
 import ProjectItems from "@/components/sections/projectitems";
+import MainTitle from "@/components/elements/maintitle";
+import AboveTitle from "@/components/elements/abovetitle";
+import Paragraph from "@/components/elements/paragraph";
+import Highlight from "@/components/elements/highlight";
+import Title from "@/components/elements/title";
 
 export default function Home() {
   return (
@@ -16,40 +21,24 @@ export default function Home() {
       <section className="bg-linear-to-br from-sky-50 via-white to-emerald-50">
         <div className="w-4/5 mx-auto flex gap-6 py-20 items-stretch">
           <div className="flex flex-col w-1/2 gap-3">
-            <div className="border border-gray-200 shadow-lg rounded-t-xl p-6 bg-white">
-              <p className="text-md mb-3 font-mono text-sm tracking-wide text-gray-600">
-                Software Engineer
-              </p>
-              <h1 className="text-7xl mb-9 font-light">
-                <span className="font-extrabold bg-linear-to-r from-emerald-600 to-sky-500 bg-clip-text text-transparent">
-                  Hello,
-                </span>{" "}
-                I'm Joe Dinsley
-              </h1>
-              <p className="text-base/7 text-gray-700">
+            <div className="border border-gray-200 shadow-lg p-6 bg-white rounded-t-xl">
+              <AboveTitle text="Software Engineer" />
+              <MainTitle gradientText="Hello," text="I'm Joe Dinsley" />
+              <Paragraph>
                 Results-driven software engineer with experience across{" "}
-                <span className="text-emerald-600 font-bold">Front-end </span>
-                and{" "}
-                <span className="text-emerald-600 font-bold">
-                  Back-end Development
-                </span>
-                . Skilled in building high-performance websites and applications
-                with a strong focus on{" "}
-                <span className="text-emerald-600 font-bold">SEO</span>,
-                <span className="text-emerald-600 font-bold">
-                  {" "}
-                  Accessibility
-                </span>
-                , and{" "}
-                <span className="text-emerald-600 font-bold">Optimisation</span>
-                .
-              </p>
+                <Highlight>Front-end </Highlight>
+                and <Highlight>Back-end Development</Highlight>. Skilled in
+                building high-performance websites and applications with a
+                strong focus on <Highlight>SEO</Highlight>,
+                <Highlight> Accessibility</Highlight>, and{" "}
+                <Highlight>Optimisation</Highlight>.
+              </Paragraph>
               <br />
-              <p className="text-base/7 text-gray-700">
+              <Paragraph>
                 Proven ability to lead projects from concept to delivery,
                 collaborating with teams and clients to deliver efficient,
                 scalable, and high-quality solutions.
-              </p>
+              </Paragraph>
             </div>
             <div className="border border-gray-200 shadow-lg rounded-b-xl p-6 bg-white flex gap-9">
               <div className="p-3 bg-sky-100 rounded-full hover:bg-sky-300 hover:scale-110 transition duration-300 ease-out">
@@ -63,21 +52,19 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col w-1/2">
-            <div className="rounded-t-xl bg-linear-to-br from-emerald-100 via-white to-sky-100 border border-gray-200 shadow-lg flex-4">
+          <div className="flex flex-col w-1/2 shadow-lg rounded-xl">
+            <div className=" flex-4 bg-linear-to-br from-emerald-100 via-white to-sky-100 border border-gray-200 ">
               <Cloud />
             </div>
-            <div className="border border-gray-200 shadow-lg rounded-b-xl bg-white flex-1 flex items-center justify-center">
-              <h2 className="text-center text-4xl font-mono">Technologies</h2>
+            <div className="shadow-lg rounded-b-xl flex-1 flex items-center justify-center border border-gray-200 bg-white">
+              <h2 className="text-center text-4xl font-bold">Technologies</h2>
             </div>
           </div>
         </div>
       </section>
 
       <section className="w-4/5 mx-auto py-20">
-        <h2 className="text-4xl font-bold font-sans mb-12 text-center">
-          Experience
-        </h2>
+        <Title text="Experience" />
         <div className="border-l border-gray-200 pl-8 space-y-12">
           <WorkExperienceItems />
         </div>
@@ -85,9 +72,7 @@ export default function Home() {
 
       <section className="bg-linear-to-br from-sky-50 via-white to-emerald-50 py-20">
         <div className="w-4/5 mx-auto">
-          <h2 className="text-4xl font-bold font-sans mb-12 text-center">
-            Projects
-          </h2>
+          <Title text="Projects" />
           <div>
             <ProjectItems />
           </div>
