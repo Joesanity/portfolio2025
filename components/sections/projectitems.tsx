@@ -3,63 +3,67 @@ import Tag from "../elements/tag";
 
 export default function ProjectItems() {
   const projects = [
-    {
-      title: "Codematik Company Website",
-      description:
-        "Created company website for Codematik - tags, url, and image to be added.",
-      image: "https://placehold.co/600x400",
-      url: "https://oakstoneconstruction.co.uk",
-      tags: ["WordPress", "PHP", "Elementor", "SEO", "Performance"],
-    },
+
     {
       title: "RSVP Wedding Form",
       description:
         "Created a simple wedding form that allows people to RSVP to the wedding and stores the data - needs image, url, and tags",
-      image: "https://placehold.co/600x400",
-      url: "https://zeekdesign.co.uk",
-      tags: ["Next.js", "React", "Tailwind CSS", "Vercel", "Accessibility"],
-    },
-    {
-      title: "Zombie God Website",
-      description:
-        "Built a website for the Zombie God Steam Game - Needs Image, Url, Tags",
-      image: "https://placehold.co/600x400",
-      url: "#",
-      tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
-    },
-    {
-      title: "Zeek Blog System",
-      description:
-        "AI Blog Post Manager with Reviews and WordPress integration - Needs Image, Url, Tags",
-      image: "https://placehold.co/600x400",
-      url: "#",
-      tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
-    },
-    {
-      title: "Team Flux",
-      description:
-        "Created a simple web design company template - Needs Image, Url, Tags",
-      image: "https://placehold.co/600x400",
-      url: "#",
-      tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
-    },
-    {
-      title: "Pro Fitting Driveways",
-      description:
-        "Driveways website created by myself entirely - Needs Image, Url, Tags",
-      image: "https://placehold.co/600x400",
-      url: "#",
-      tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
-    },
-        {
-      title: "Sales Scoreboard - t3 folder btw for when you lose it.",
-      description:
-        "Sales scoreboard that allows you to track the sales someone makes, as well as adding and removing sales people - Needs Image, Url, Tags",
-      image: "https://placehold.co/600x400",
-      url: "#",
-      tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+      image: "/project-images/rsvp/form-image.png",
+      url: "/projects/rsvp",
+      tags: ["Laravel", "Front-end", "Back-end", "MySQL", "Blade"],
     },
   ];
+
+    // IDEAS FOR FUTURE PROJECTS / THINGS NEED TO ADD
+
+    //   {
+    //   title: "Codematik Company Website",
+    //   description:
+    //     "Created company website for Codematik - tags, url, and image to be added.",
+    //   image: "https://placehold.co/600x400",
+    //   url: "https://oakstoneconstruction.co.uk",
+    //   tags: ["WordPress", "PHP", "Elementor", "SEO", "Performance"],
+    // },
+    //   {
+    //   title: "Zombie God Website",
+    //   description:
+    //     "Built a website for the Zombie God Steam Game - Needs Image, Url, Tags",
+    //   image: "https://placehold.co/600x400",
+    //   url: "#",
+    //   tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+    // },
+    // {
+    //   title: "Zeek Blog System",
+    //   description:
+    //     "AI Blog Post Manager with Reviews and WordPress integration - Needs Image, Url, Tags",
+    //   image: "https://placehold.co/600x400",
+    //   url: "#",
+    //   tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+    // },
+    // {
+    //   title: "Team Flux",
+    //   description:
+    //     "Created a simple web design company template - Needs Image, Url, Tags",
+    //   image: "https://placehold.co/600x400",
+    //   url: "#",
+    //   tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+    // },
+    // {
+    //   title: "Pro Fitting Driveways",
+    //   description:
+    //     "Driveways website created by myself entirely - Needs Image, Url, Tags",
+    //   image: "https://placehold.co/600x400",
+    //   url: "#",
+    //   tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+    // },
+    //     {
+    //   title: "Sales Scoreboard - t3 folder btw for when you lose it.",
+    //   description:
+    //     "Sales scoreboard that allows you to track the sales someone makes, as well as adding and removing sales people - Needs Image, Url, Tags",
+    //   image: "https://placehold.co/600x400",
+    //   url: "#",
+    //   tags: ["Laravel", "Vue.js", "MySQL", "Auth", "Azure DevOps"],
+    // },
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
@@ -71,9 +75,9 @@ export default function ProjectItems() {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-96 object-cover"
+            className="w-full h-96 object-contain"
           />
-          <div className="p-6">
+          <div className="p-6 border-t border-gray-200">
             <h3 className="text-xl font-semibold">{project.title}</h3>
             <p className="text-gray-600 mt-2">{project.description}</p>
             <div className="flex flex-wrap gap-2 pt-3 mb-6">
@@ -82,9 +86,9 @@ export default function ProjectItems() {
               ))}
             </div>
             <Button
-              label="Visit Site"
+              label="View Project"
               href={project.url}
-              isInternal={false}
+              isInternal={true}
               isButton={true}
               classes=" !py-2"
             ></Button>

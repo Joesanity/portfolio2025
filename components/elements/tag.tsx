@@ -3,7 +3,7 @@ export default function Tag({ tag }: { tag: string }) {
     const lower = tag.toLowerCase();
     if (
       // Programming Languages, Frameworks, Databases
-      ["php", "c#", "laravel", "next.js", "vue.js", "mysql", "react", "tailwind"].some((t) =>
+      ["php", "c#", "laravel", "next.js", "vue.js", "blade", "mysql", "react", "tailwind"].some((t) =>
         lower.includes(t)
       )
     )
@@ -22,7 +22,7 @@ export default function Tag({ tag }: { tag: string }) {
       return "amber";
     if (
       // Domains, DevOps, Technical Systems, Support
-      ["dns", "linux", "management", "support", "email", "custom fields"].some(
+      ["dns", "linux", "management", "support", "email", "custom fields", "front-end", "back-end"].some(
         (t) => lower.includes(t)
       )
     )

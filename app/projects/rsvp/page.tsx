@@ -1,4 +1,5 @@
 import AboveTitle from "@/components/elements/abovetitle";
+import GithubLink from "@/components/elements/githublink";
 import Highlight from "@/components/elements/highlight";
 import MainTitle from "@/components/elements/maintitle";
 import Paragraph from "@/components/elements/paragraph";
@@ -14,7 +15,11 @@ export default function RsvpProject() {
         This was a small project made for a family member of my partner. It is a
         simple form hosted on a <Highlight>Digital Ocean</Highlight> droplet,
         that allows people to RSVP to the wedding. It includes a form made using
-        the colour scheme and style that was requested. It is built on{" "}
+        the colour scheme and style that was requested.
+      </Paragraph>
+      <br />
+      <Paragraph>
+         It is built on{" "}
         <Highlight>Laravel</Highlight> and has a backend{" "}
         <Highlight>Admin Dashboard</Highlight> that allows the couple to login
         and check who has responded. It uses a simple{" "}
@@ -30,6 +35,7 @@ export default function RsvpProject() {
           height={0}
           className="w-96 h-auto mx-auto"
         />
+        <GithubLink link="https://github.com/Joesanity/rsvp-form" />
     </>
   );
 }
